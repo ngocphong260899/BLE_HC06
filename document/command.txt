@@ -1,0 +1,45 @@
+typedef enum {
+    CH1_ON  = 1,
+    CH1_OFF = 2,
+    CH2_ON  = 3,
+    CH2_OFF = 4,
+    CH3_ON  = 5,
+    CH3_OFF = 6,
+} hc06_ctrl_t;
+
+/* Control Device */
+{cmd_type:0, cmd:1}
+{cmd_type:0, cmd:2}
+{cmd_type:0, cmd:3}
+{cmd_type:0, cmd:4}
+{cmd_type:0, cmd:5}
+{cmd_type:0, cmd:6}
+{"cmd_type":0, "state":[1, 0, 0], "res":OK}
+
+/* Set Alarm */
+{cmd_type:1, "cmd":1, "hour":17, "minutes":10, "second":0}
+{cmd_type:1, "res":"OK"}
+
+/* Deactive Alarm */
+{cmd_type:2}
+{cmd_type:2, "res":"OK"}
+
+/* Get device info */
+{cmd_type:3}
+{"cmd_type":3, "state":[1, 0, 0], "time_on":[0, 0, 0], "res":OK}
+
+/* get time active one day */
+{cmd_type:4}
+{"cmd_type": 4, "dev":0, "time_active_day": [10, 20], "res":OK}
+
+/* get time active one week */
+{cmd_type:5}
+{"cmd_type": 5, "dev":0, "time_active_week": [10, 20], "res":OK}
+
+/* get time active one month */
+{cmd_type:6}
+{"cmd_type": 6, "dev":0, "time_active_month": [10, 20], "res":OK}
+
+/* Get time Alarm */
+{cmd_type:7}
+{"cmd_type":7, "index": %d, "cmd":%d, "time_alarm":[%d, %d], "res":OK}
